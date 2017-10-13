@@ -39,6 +39,16 @@ class ViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+        
+        // setup output, add output to our capture session
+        let captureOutput = AVCaptureVideoDataOutput()
+        captureSession.addOutput(captureOutput)
+        
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = view.frame
+        view.layer.addSublayer(previewLayer)
+        
+        captureSession.startRunning()
     }
 
 
