@@ -19,7 +19,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Label"
-        label.font = label.font.withSize(30)
+        label.font = label.font.withSize(50)
         return label
     }()
     
@@ -80,7 +80,11 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             guard let Observation = results.first else { return }
             
             DispatchQueue.main.async(execute: {
-                self.label.text = "\(Observation.identifier)"
+                if Observation.identifier.contains("hotdog"){
+                    self.label.text = "🌭 Hotdog 🌭"
+                } else{
+                    self.label.text = "❌ Not Hotdog ❌"
+                }
             })
         }
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
