@@ -12,11 +12,28 @@ import UIKit
 import AVFoundation
 import Vision
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    let label: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Label"
+        label.font = label.font.withSize(30)
+        return label
+    }()
+    
+    func setupLabel() {
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCaptureSession()
+        
+        view.addSubview(label)
+        setupLabel()
 
     }
 
