@@ -11,6 +11,7 @@
 		F8F7E3231F9046BD00623931 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7E3221F9046BD00623931 /* ViewController.swift */; };
 		F8F7E3281F9046BD00623931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F7E3271F9046BD00623931 /* Assets.xcassets */; };
 		F8F7E32B1F9046BD00623931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F7E3291F9046BD00623931 /* LaunchScreen.storyboard */; };
+		F8F7E3331F90D1E100623931 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F8F7E3321F90D1CD00623931 /* Resnet50.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		F8F7E3271F9046BD00623931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8F7E32A1F9046BD00623931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8F7E32C1F9046BD00623931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8F7E3321F90D1CD00623931 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 		F8F7E3141F9046BD00623931 = {
 			isa = PBXGroup;
 			children = (
+				F8F7E3321F90D1CD00623931 /* Resnet50.mlmodel */,
 				F8F7E31F1F9046BD00623931 /* HotDogOrNot */,
 				F8F7E31E1F9046BD00623931 /* Products */,
 			);
@@ -132,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8F7E3331F90D1E100623931 /* Resnet50.mlmodel in Sources */,
 				F8F7E3231F9046BD00623931 /* ViewController.swift in Sources */,
 				F8F7E3211F9046BD00623931 /* AppDelegate.swift in Sources */,
 			);
