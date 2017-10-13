@@ -6,7 +6,9 @@
 //  Copyright © 2017 Donnie Mattingly. All rights reserved.
 
 // https://developer.apple.com/machine-learning/
-//
+// 
+// most of this lifted from here
+// https://medium.freecodecamp.org/ios-coreml-vision-image-recognition-3619cf319d0b
 
 import UIKit
 import AVFoundation
