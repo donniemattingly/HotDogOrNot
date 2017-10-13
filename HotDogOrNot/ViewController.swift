@@ -31,6 +31,14 @@ class ViewController: UIViewController {
         // search for available capture devices
         let availableDevices = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back).devices
 
+        
+        do {
+            if let captureDevice = availableDevices.first {
+                captureSession.addInput(try AVCaptureDeviceInput(device: captureDevice))
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 
 
