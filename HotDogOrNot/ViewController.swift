@@ -23,6 +23,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         return label
     }()
     
+    var count = 0
+    
     func setupLabel() {
         label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
@@ -80,11 +82,13 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             guard let Observation = results.first else { return }
             
             DispatchQueue.main.async(execute: {
-                if Observation.identifier.contains("hotdog"){
-                    self.label.text = "🌭 Hotdog 🌭"
-                } else{
-                    self.label.text = "❌ Not Hotdog ❌"
-                }
+                self.count = self.count + 1
+                self.label.text = "\(self.count)"
+//                if Observation.identifier.contains("hotdog"){
+//                    self.label.text = "🌭 Hotdog 🌭"
+//                } else{
+//                    self.label.text = "❌ Not Hotdog ❌"
+//                }
             })
         }
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
