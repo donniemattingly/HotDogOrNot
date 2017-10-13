@@ -68,6 +68,25 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         view.layer.addSublayer(previewLayer)
         
         captureSession.startRunning()
+        
+        
+        captureOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        guard let model = try? VNCoreMLModel(for: Resnet50().model) else { return }
+        let request = VNCoreMLRequest(model: model) { (finishedRequest, error) in
+            guard let results = finishedRequest.results as? [VNClassificationObservation] else { return }
+            guard let Observation = results.first else { return }
+            
+            DispatchQueue.main.async(execute: {
+                self.label.text = "\(Observation.identifier)"
+            })
+        }
+        guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        
+        // executes request
+        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }
 
 
